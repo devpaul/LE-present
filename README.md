@@ -7,6 +7,7 @@ Presenting Let's Encrypt @ Iterate PHX. Created by Paul Shannon [@developerPaul]
 * `bower install`
 * `npm install`
 * `grunt present`
+* open [Presentation @ http://localhost:8765](http://localhost:8765)
 
 ## Attribution and License 
 

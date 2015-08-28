@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Let's Encrypt</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="bower_components/reveal.js/css/theme/sky.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
+	<link rel="stylesheet" href="resources/main.css">
+
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="shortcut icon" type="image/svg" href="favicon.svg" />
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'bower_components/reveal.js/css/print/pdf.css' : 'bower_components/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section class="full">
+			<div>
+				<img class="medium strip" src="./images/letsencrypt-lock.svg">
+				<h1>Let's Encrypt</h1>
+			</div>
+		</section>
+
+		<section>
+			<h2>Hello There</h2>
+			<p>
+				<small>Paul Shannon / <a href="http://twitter.com/developerPaul">@developerPaul</a></small>
+			</p>
+			<!-- TODO add Instructor Slide -->
+		</section>
+
+		<section>
+			<h2>Workshop Overview</h2>
+			<ul>
+				<li>About Let's Encrypt</li>
+				<li>Demo</li>
+				<li>Questions and hands-on</li>
+			</ul>
+			<!-- TODO review this slide -->
+		</section>
+
+		<section class="full">
+			<div>
+				<h2>HTTPS in Brief</h2>
+				<img class="full strip" src="./images/https-handshake.svg">
+			</div>
+		</section>
+
+		<section>
+			<h2>Why Encrypt?</h2>
+		</section>
+
+		<section>
+			<h3>It's good security</h3>
+			<ul>
+				<li>Secures open wifi hotspots</li>
+				<li>Prevents session hijacking</li>
+				<li>Prevents man-in-the-middle attacks</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>It's good for privacy</h3>
+			<ul>
+				<li>Governments are listening</li>
+				<li>ISPs are listening</li>
+				<li>Verizon adds tracking cookies</li>
+				<li>Comcast injects ads</li>
+			</ul>
+
+			<aside class="notes">
+				Government like the US and China
+
+				Years ago it would have been considered a tin-foil hat conspiracy if I said
+				the government collects metadata on all communication. Now it's fact.
+
+				The NSA used geolocation and marketing cookies to track people
+			</aside>
+		</section>
+
+		<section>
+			<h3>It's good for you</h3>
+			<ul>
+				<li>Google uses https as a ranking signal</li>
+				<li>Chrome and Firefox will deprecate http</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Barriers to Encrypting</h2>
+
+			<ul>
+				<li>Certificates cost money</li>
+				<li>Certificates expire</li>
+				<li>Editing server configurations is hard</li>
+				<li>TLS lowers performance</li>
+				<li>Inhibits load balancing</li>
+				<li>Mixed mode</li>
+			</ul>
+
+			<aside class="notes">
+				Non-technical companies let certificates expire and don't know it until
+				people start seeing a certificate warning. It takes time, a PO, sometimes a contractor
+				to update certs.
+
+				FREAK happened due to difficult to configure servers. More than 30% of servers supported Export RSA
+				encryption.
+			</aside>
+		</section>
+
+		<section>
+			<h1>So... Let's Encrypt</h1>
+		</section>
+
+		<section>
+			<p>Let's Encrypt is a free, automated, and open certificate authority</p>
+		</section>
+
+		<section>
+			<h2>Comprised of 3 components</h2>
+			<img class="strip" src="./images/LE-3parts.svg">
+		</section>
+
+		<section>
+			<h2>Let's Encrypt Client</h2>
+			<ul>
+				<li>Get a new certificate</li>
+				<li>Install certificate in Nginx or Apache</li>
+				<li>Renew certificates</li>
+				<li>Revoke certificates</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>How does it work?</h2>
+		</section>
+
+		<section>
+			<h2>Domain Registration</h2>
+			<img class="strip" src="./images/howitworks_challenge.png">
+			<!-- TODO clean this up -->
+			<aside class="notes">
+				<ol>
+					<li>client contacts ACME CA</li>
+					<li>server says: Put [text] at &lt;domain&gt;/[location] sign [nonce]</li>
+				</ol>
+			</aside>
+		</section>
+
+		<section>
+			<h2>Domain Validation</h2>
+			<img class="strip" src="./images/howitworks_authorization.png">
+			<!-- TODO clean this up -->
+		</section>
+
+		<section>
+			<h2>Certificate Issuance</h2>
+			<img class="strip" src="./images/howitworks_certificate.png">
+			<!-- TODO clean this up -->
+		</section>
+
+		<section>
+			<h1>Demo Time!</h1>
+		</section>
+
+		<section>
+			<h2>Sponsors</h2>
+			<div class="mosaic">
+				<img class="strip" src="images/logos/mozilla-logo.png">
+				<img class="strip" src="images/logos/eff-logo.png">
+				<img class="strip" src="images/logos/akamai-logo.png">
+			</div>
+			<div class="mosaic">
+				<img class="strip" src="images/logos/identrust-logo.png">
+				<img class="strip" src="images/logos/cisco-logo.png">
+				<img class="strip" src="images/logos/automattic-logo.png">
+			</div>
+		</section>
+
+		<section>
+			<h2>Coming Soon</h2>
+			<p>Limited Rollout: September 7</p>
+			<p>General Availability: November 16</p>
+		</section>
+
+		<section>
+			<h2>Get Involved</h2>
+			<p>Let's Encrypt is the full time effort of only a handful of people.</p>
+			<div>
+				<h4>Needed:</h4>
+				<ul>
+					<li>better Nginx support</li>
+					<li>Apache & Nginx modules</li>
+				</ul>
+			</div>
+			<div><img class="strip gh-mark" src="images/mark-github.svg"></div>
+			<div>https://github.com/letsencrypt</div>
+		</section>
+	</div>
+</div>
+
+<script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+<script src="bower_components/reveal.js/js/reveal.js"></script>
+
+<script>
+
+	// Full list of configuration options available at:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls: true,
+		progress: true,
+		history: true,
+		center: true,
+		width: '100%',
+		height: '100%',
+
+		transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+		// Optional reveal.js plugins
+		dependencies: [
+			{ src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+			{ src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true }
+		]
+	});
+
+</script>
+
+</body>
+</html>

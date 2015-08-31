@@ -15,7 +15,7 @@ person or their likeness may not be reused in magazine or billboard advertising 
 
 * from: https://letsencrypt.org/images/letsencrypt-logo-horizontal.svg
 * owned by: [Linux Foundation](http://collabprojects.linuxfoundation.org/)
-* used under: Fair Use
+* used under: [CC Attribution-Share Alike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/deed.en)
 
 ### Server image
 

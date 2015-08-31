@@ -6,8 +6,21 @@ Presenting Let's Encrypt @ Iterate PHX. Created by Paul Shannon [@developerPaul]
 
 * `bower install`
 * `npm install`
-* `grunt present`
+* `grunt serve`
 * open [Presentation @ http://localhost:8765](http://localhost:8765)
+
+## Dependencies
+
+* [Node.js & npm](https://nodejs.org/download/)
+* [Grunt](http://gruntjs.com/getting-started)
+* [Bower](http://bower.io/#install-bower)
+
+Recommend installing Grunt and Bower globally:
+
+```
+npm install -g grunt-cli
+npm install -g bower
+```
 
 ## Attribution and License 
 

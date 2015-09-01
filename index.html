@@ -72,7 +72,7 @@
 		<section class="full">
 			<div>
 				<h2>HTTPS in Brief</h2>
-				<img class="full strip" src="./images/https-handshake.svg">
+				<img class="full strip" height="500" src="./images/https-handshake.svg">
 			</div>
 		</section>
 
@@ -191,6 +191,14 @@
 
 		<section>
 			<h1>Demo Time!</h1>
+
+			<p>letsencrypt --server http://devpaul.xyz/acme/new-reg auth</p>
+
+			<code class="fragment">docker run -it --rm -p 443:443 --name letsencrypt -v `pwd`/etc:/etc/letsencrypt -v `pwd`/lib:/var/lib/letsencrypt quay.io/letsencrypt/letsencrypt --server http://devpaul.xyz/acme/new-reg auth</code>
+
+			<aside class="notes">
+				docker run -it --rm --name letsencrypt --entrypoint /bin/bash quay.io/letsencrypt/letsencrypt:latest
+			</aside>
 		</section>
 
 		<section>
